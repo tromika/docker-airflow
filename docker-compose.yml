@@ -13,7 +13,9 @@ rabbitmq:
     container_name: rabbitmq
     image: puckel/docker-rabbitmq
     restart: always
-    net: "host"
+    ports:
+        - "15672:15672"
+        - "5672:5672"
     environment:
         - RABBITMQ_USER=airflow
         - RABBITMQ_PASSWORD=airflow
