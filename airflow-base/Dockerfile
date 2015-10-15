@@ -5,7 +5,7 @@
 # SOURCE: https://github.com/puckel/docker-airflow
 
 FROM debian:wheezy
-MAINTAINER Puckel_
+MAINTAINER tromika
 
 # Never prompts the user for choices on installation/configuration of packages
 ENV DEBIAN_FRONTEND noninteractive
@@ -35,6 +35,7 @@ RUN apt-get update -yqq \
     && pip install --install-option="--install-purelib=$PYTHONLIBPATH" cryptography \
     && pip install --install-option="--install-purelib=$PYTHONLIBPATH" airflow==${AIRFLOW_VERSION} \
     && pip install --install-option="--install-purelib=$PYTHONLIBPATH" airflow[mysql]==${AIRFLOW_VERSION} \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" airflow[hdfs]==${AIRFLOW_VERSION} \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
