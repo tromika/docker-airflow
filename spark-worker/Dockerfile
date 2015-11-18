@@ -16,7 +16,11 @@ ENV INITRD No
 ENV VERSION 0.25.0
 ENV PKG_RELEASE 0.2.70
 
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --force-yes software-properties-common python-software-properties
+
+USER root
+
+RUN apt-get -y update
+RUN apt-get install -y --force-yes software-properties-common python-software-properties
 RUN apt-add-repository -y ppa:webupd8team/java
 RUN apt-get -y update
 RUN /bin/echo debconf shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections

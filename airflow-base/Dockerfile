@@ -4,7 +4,7 @@
 # BUILD: docker build --rm -t puckel/docker-airflow
 # SOURCE: https://github.com/puckel/docker-airflow
 
-FROM debian:wheezy
+FROM ubuntu
 MAINTAINER tromika
 
 # Never prompts the user for choices on installation/configuration of packages
