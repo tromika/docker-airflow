@@ -36,6 +36,14 @@ RUN apt-get update -yqq \
     && pip install --install-option="--install-purelib=$PYTHONLIBPATH" airflow==${AIRFLOW_VERSION} \
     && pip install --install-option="--install-purelib=$PYTHONLIBPATH" airflow[mysql]==${AIRFLOW_VERSION} \
     && pip install --install-option="--install-purelib=$PYTHONLIBPATH" airflow[hdfs]==${AIRFLOW_VERSION} \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" airflow[celery]==${AIRFLOW_VERSION} \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" gcloud \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" xlrd \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" pytz  \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" oauth2client  \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" google-api-python-client  \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" BeautifulSoup  \
+    && pip install --install-option="--install-purelib=$PYTHONLIBPATH" pandas  \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
