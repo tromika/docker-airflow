@@ -37,17 +37,19 @@ RUN \
   apt-get clean
 
 
-RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-1.5.1-bin-hadoop2.6.tgz  | tar -xz -C /usr/local/
-RUN cd /usr/local && ln -s spark-1.5.1-bin-hadoop2.6 spark
+RUN curl -s https://transfer.sh/m97CP/spark-1.6.0-snapshot-bin-2.6.0.tgz  | tar -xz -C /usr/local/
+RUN cd /usr/local && ln -s spark-1.6.0-bin-hadoop2.6 spark
 
 RUN curl -s http://www.eu.apache.org/dist/hadoop/common/hadoop-2.7.1/hadoop-2.7.1.tar.gz  | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s hadoop-2.7.1 hadoop
 
 
+
+ENV JAVA_HOME /usr/lib/jvm/java-7-oracle
 ENV SPARK_HOME /usr/local/spark
 ENV MESOS_NATIVE_LIBRARY /usr/lib/libmesos.so
 ENV PYTHONPATH $SPARK_HOME/python/:$PYTHONPATH
-ENV PYTHONPATH $SPARK_HOME/python/lib/py4j-0.8.2.1-src.zip:$PYTHONPATH
+ENV PYTHONPATH $SPARK_HOME/python/lib/py4j-0.9-src.zip:$PYTHONPATH
 
 
 
